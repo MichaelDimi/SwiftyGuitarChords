@@ -118,7 +118,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             layer.addSublayer(shapeLayer)
         }
 
-        layer.frame = CGRect(x: 0, y: 0, width: scale, height: newHeight)
+        layer.frame = CGRect(x: 0, y: 0, width: scale - 5, height: newHeight)
 
         return layer
     }
@@ -167,7 +167,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
                 let txtFont = NSFont.systemFont(ofSize: fretConfig.margin)
                 #endif
                 let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin, height: fretConfig.spacing)
-                let transX = stringConfig.margin / 5 + origin.x
+                let transX = stringConfig.margin / 5 + origin.x - 3
                 let transY = origin.y + (fretConfig.spacing / 2) + fretConfig.margin
                 let txtPath = "\(baseFret)".path(font: txtFont, rect: txtRect, position: CGPoint(x: transX, y: transY))
                 txtLayer.path = txtPath
