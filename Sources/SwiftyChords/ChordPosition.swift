@@ -118,7 +118,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             layer.addSublayer(shapeLayer)
         }
 
-        layer.frame = CGRect(x: 0, y: 0, width: scale + 10, height: newHeight)
+        layer.frame = CGRect(x: 5, y: 0, width: scale + 5, height: newHeight)
 
         return layer
     }
