@@ -118,7 +118,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             layer.addSublayer(shapeLayer)
         }
 
-        layer.frame = CGRect(x: 0, y: 0, width: scale + 5, height: newHeight)
+        layer.frame = CGRect(x: 0, y: 0, width: scale, height: newHeight)
 
         return layer
     }
@@ -333,7 +333,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
 
                 let circleLayer = CAShapeLayer()
                 circleLayer.path = circle
-                circleLayer.lineWidth = fretConfig.spacing / 24
+                circleLayer.lineWidth = fretConfig.spacing / 20
                 #if os(iOS)
                 circleLayer.strokeColor = forScreen ? UIColor.label.cgColor : UIColor.black.cgColor
                 circleLayer.fillColor = forScreen ? UIColor.systemBackground.cgColor : UIColor.white.cgColor
@@ -365,7 +365,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
 
                 let crossLayer = CAShapeLayer()
                 crossLayer.path = cross
-                crossLayer.lineWidth = fretConfig.spacing / 24
+                crossLayer.lineWidth = fretConfig.spacing / 20
 
                 #if os(iOS)
                 crossLayer.strokeColor = forScreen ? UIColor.label.cgColor : UIColor.black.cgColor
