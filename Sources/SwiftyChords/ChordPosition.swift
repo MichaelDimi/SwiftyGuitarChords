@@ -333,7 +333,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
 
                 let circleLayer = CAShapeLayer()
                 circleLayer.path = circle
-                circleLayer.lineWidth = fretConfig.spacing / 20
+                circleLayer.lineWidth = fretConfig.spacing / 18
                 #if os(iOS)
                 circleLayer.strokeColor = forScreen ? UIColor.label.cgColor : UIColor.black.cgColor
                 circleLayer.fillColor = forScreen ? UIColor.systemBackground.cgColor : UIColor.white.cgColor
@@ -365,7 +365,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
 
                 let crossLayer = CAShapeLayer()
                 crossLayer.path = cross
-                crossLayer.lineWidth = fretConfig.spacing / 20
+                crossLayer.lineWidth = fretConfig.spacing / 18
 
                 #if os(iOS)
                 crossLayer.strokeColor = forScreen ? UIColor.label.cgColor : UIColor.black.cgColor
