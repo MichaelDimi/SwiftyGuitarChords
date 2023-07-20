@@ -89,7 +89,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
         let horScale = rect.height / heightMultiplier
         let scale = min(horScale, rect.width)
         let newHeight = scale * heightMultiplier
-        let size = CGSize(width: scale, height: newHeight)
+        let size = CGSize(width: scale + 5, height: newHeight)
 
         let stringMargin = size.width / 10
         let fretMargin = size.height / 10
