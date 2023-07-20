@@ -89,7 +89,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
         let horScale = rect.height / heightMultiplier
         let scale = min(horScale, rect.width)
         let newHeight = scale * heightMultiplier
-        let size = CGSize(width: scale + 5, height: newHeight)
+        let size = CGSize(width: scale, height: newHeight)
 
         let stringMargin = size.width / 10
         let fretMargin = size.height / 10
@@ -118,7 +118,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             layer.addSublayer(shapeLayer)
         }
 
-        layer.frame = CGRect(x: 0, y: 0, width: scale, height: newHeight)
+        layer.frame = CGRect(x: 0, y: 0, width: scale + 5, height: newHeight)
 
         return layer
     }
