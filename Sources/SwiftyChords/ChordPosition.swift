@@ -118,7 +118,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             layer.addSublayer(shapeLayer)
         }
 
-        layer.frame = CGRect(x: 0, y: 0, width: scale, height: newHeight)
+        layer.frame = CGRect(x: 0, y: 0, width: scale + 8, height: newHeight)
 
         return layer
     }
@@ -173,7 +173,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
                 txtLayer.path = txtPath
 
                 // DEBUG
-                txtLayer.backgroundColor = UIColor.red.cgColor
+                txtLayer.fillColor = UIColor.red.cgColor
                 
                 #if os(iOS)
                 txtLayer.fillColor = forScreen ? UIColor.label.cgColor : UIColor.black.cgColor
