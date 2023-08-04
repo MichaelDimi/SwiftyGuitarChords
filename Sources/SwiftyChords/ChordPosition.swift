@@ -162,9 +162,9 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             if baseFret != 1 {
                 let txtLayer = CAShapeLayer()
                 #if os(iOS)
-                let txtFont = UIFont.systemFont(ofSize: fretConfig.margin * 1.5) // Changes the font size
+                let txtFont = UIFont.systemFont(ofSize: fretConfig.margin * 1.4) // Changes the font size
                 #else
-                let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.5) // Changes the font size
+                let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.4) // Changes the font size
                 #endif
                 let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin + 10, height: fretConfig.spacing + 10) // When font size is changed, must also change frame
                 let transX = stringConfig.margin / 5 + origin.x - 6 // Changes the x-pos of the fret number
