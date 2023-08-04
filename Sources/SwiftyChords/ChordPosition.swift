@@ -166,7 +166,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
                 #else
                 let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.4)
                 #endif
-                let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin + 10, height: fretConfig.spacing)
+                let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin + 10, height: fretConfig.spacing + 5)
                 let transX = stringConfig.margin / 5 + origin.x
                 let transY = origin.y + (fretConfig.spacing / 2) + fretConfig.margin
                 let txtPath = "\(baseFret)".path(font: txtFont, rect: txtRect, position: CGPoint(x: transX, y: transY))
