@@ -91,14 +91,14 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
         let newHeight = scale * heightMultiplier
         let size = CGSize(width: scale, height: newHeight)
 
-        let stringMargin = size.width / 10 + 2
-        let fretMargin = size.height / 10
+        let stringMargin = size.width / 10
+        let fretMargin = size.height / 10 + 2
 
         let fretLength = size.width - (stringMargin * 2)
         let stringLength = size.height - (fretMargin * (chordName.show ? 2.8 : 2))
         let origin = CGPoint(x: rect.origin.x + 7, y: chordName.show ? fretMargin * 1.2 : 0)
 
-        let fretSpacing = stringLength / CGFloat(ChordPosition.numberOfFrets) + 2
+        let fretSpacing = stringLength / CGFloat(ChordPosition.numberOfFrets)
         let stringSpacing = fretLength / CGFloat(ChordPosition.numberOfStrings)
 
         let fretConfig = LineConfig(spacing: fretSpacing, margin: fretMargin, length: fretLength, count: ChordPosition.numberOfFrets)
