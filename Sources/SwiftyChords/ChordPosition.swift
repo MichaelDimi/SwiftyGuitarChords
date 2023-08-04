@@ -171,6 +171,10 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
                 let transY = origin.y + (fretConfig.spacing / 2) + fretConfig.margin
                 let txtPath = "\(baseFret)".path(font: txtFont, rect: txtRect, position: CGPoint(x: transX, y: transY))
                 txtLayer.path = txtPath
+
+                // DEBUG
+                txtLayer.backgroundColor = UIColor.red.cgColor
+                
                 #if os(iOS)
                 txtLayer.fillColor = forScreen ? UIColor.label.cgColor : UIColor.black.cgColor
                 #else
