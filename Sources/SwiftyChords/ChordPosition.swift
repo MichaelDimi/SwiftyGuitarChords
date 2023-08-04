@@ -162,12 +162,12 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             if baseFret != 1 {
                 let txtLayer = CAShapeLayer()
                 #if os(iOS)
-                let txtFont = UIFont.systemFont(ofSize: fretConfig.margin * 1.3)
+                let txtFont = UIFont.systemFont(ofSize: fretConfig.margin * 1.4)
                 #else
-                let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.3)
+                let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.4)
                 #endif
-                let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin + 2, height: fretConfig.spacing)
-                let transX = stringConfig.margin / 5 + origin.x - 4
+                let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin + 4, height: fretConfig.spacing)
+                let transX = stringConfig.margin / 5 + origin.x - 2
                 let transY = origin.y + (fretConfig.spacing / 2) + fretConfig.margin
                 let txtPath = "\(baseFret)".path(font: txtFont, rect: txtRect, position: CGPoint(x: transX, y: transY))
                 txtLayer.path = txtPath
