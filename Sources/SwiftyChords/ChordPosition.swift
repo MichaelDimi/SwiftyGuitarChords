@@ -91,14 +91,14 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
         let newHeight = scale * heightMultiplier
         let size = CGSize(width: scale, height: newHeight)
 
-        let stringMargin = size.width / 10
+        let stringMargin = size.width / 10 + 2
         let fretMargin = size.height / 10
 
         let fretLength = size.width - (stringMargin * 2)
         let stringLength = size.height - (fretMargin * (chordName.show ? 2.8 : 2))
         let origin = CGPoint(x: rect.origin.x + 7, y: chordName.show ? fretMargin * 1.2 : 0)
 
-        let fretSpacing = stringLength / CGFloat(ChordPosition.numberOfFrets)
+        let fretSpacing = stringLength / CGFloat(ChordPosition.numberOfFrets) + 2
         let stringSpacing = fretLength / CGFloat(ChordPosition.numberOfStrings)
 
         let fretConfig = LineConfig(spacing: fretSpacing, margin: fretMargin, length: fretLength, count: ChordPosition.numberOfFrets)
@@ -162,9 +162,9 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             if baseFret != 1 {
                 let txtLayer = CAShapeLayer()
                 #if os(iOS)
-                let txtFont = UIFont.systemFont(ofSize: fretConfig.margin * 1.3 + 2)
+                let txtFont = UIFont.systemFont(ofSize: fretConfig.margin * 1.3)
                 #else
-                let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.3 + 2)
+                let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.3)
                 #endif
                 let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin, height: fretConfig.spacing)
                 let transX = stringConfig.margin / 5 + origin.x - 4
