@@ -92,11 +92,11 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
         let size = CGSize(width: scale, height: newHeight)
 
         let stringMargin = size.width / 10
-        let fretMargin = size.height / 10 + 2
+        let fretMargin = size.height / 10
 
         let fretLength = size.width - (stringMargin * 2)
         let stringLength = size.height - (fretMargin * (chordName.show ? 2.8 : 2))
-        let origin = CGPoint(x: rect.origin.x + 4, y: chordName.show ? fretMargin * 1.2 : 0)
+        let origin = CGPoint(x: rect.origin.x, y: chordName.show ? fretMargin * 1.2 : 0)
 
         let fretSpacing = stringLength / CGFloat(ChordPosition.numberOfFrets)
         let stringSpacing = fretLength / CGFloat(ChordPosition.numberOfStrings)
@@ -118,7 +118,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             layer.addSublayer(shapeLayer)
         }
 
-        layer.frame = CGRect(x: 0, y: 0, width: scale + 10, height: newHeight)
+        layer.frame = CGRect(x: 0, y: 0, width: scale, height: newHeight)
 
         return layer
     }
@@ -162,11 +162,11 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             if baseFret != 1 {
                 let txtLayer = CAShapeLayer()
                 #if os(iOS)
-                let txtFont = UIFont.systemFont(ofSize: fretConfig.margin * 1.4)
+                let txtFont = UIFont.systemFont(ofSize: fretConfig.margin * 1.2)
                 #else
-                let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.4)
+                let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.2)
                 #endif
-                let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin + 10, height: fretConfig.spacing + 5)
+                let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin, height: fretConfig.spacing)
                 let transX = stringConfig.margin / 5 + origin.x
                 let transY = origin.y + (fretConfig.spacing / 2) + fretConfig.margin
                 let txtPath = "\(baseFret)".path(font: txtFont, rect: txtRect, position: CGPoint(x: transX, y: transY))
