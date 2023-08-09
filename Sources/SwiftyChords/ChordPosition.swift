@@ -179,9 +179,6 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
                 #else
                 txtLayer.fillColor = forScreen ? NSColor.labelColor.cgColor : NSColor.black.cgColor
                 #endif
-
-                // DEBUG
-                txtLayer.fillColor = UIColor.red.cgColor
                 
                 fretLayer.addSublayer(txtLayer)
             }
