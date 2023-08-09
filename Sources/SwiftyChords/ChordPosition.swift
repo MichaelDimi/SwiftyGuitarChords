@@ -97,12 +97,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
         let fretLength = size.width - (stringMargin * 2)
         let stringLength = size.height - (fretMargin * (chordName.show ? 2.8 : 2))
 
-        var offset: CGFloat = 12.0
-        // if baseFret >= 10 {
-        //     offset = 12.0
-        // } else if baseFret > 1 {
-        //     offset = 8.0
-        // }
+        let offset: CGFloat = 12.0
         let origin = CGPoint(x: rect.origin.x + offset, y: chordName.show ? fretMargin * 1.2 : 0)
 
         let fretSpacing = stringLength / CGFloat(ChordPosition.numberOfFrets)
@@ -174,7 +169,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
                 let txtFont = NSFont.systemFont(ofSize: fretConfig.margin * 1.4) // Changes the font size
                 #endif
                 let txtRect = CGRect(x: 0, y: 0, width: stringConfig.margin + 10, height: fretConfig.spacing + 10) // When font size is changed, must also change frame
-                let transX = stringConfig.margin / 5 + origin.x - 2 // Changes the x-pos of the fret number
+                let transX = stringConfig.margin / 5 + origin.x - ((baseFret >= 10) ? 3 : 2) // Changes the x-pos of the fret number
                 let transY = origin.y + (fretConfig.spacing / 2) + fretConfig.margin
                 let txtPath = "\(baseFret)".path(font: txtFont, rect: txtRect, alignment: .right, position: CGPoint(x: transX, y: transY))
                 txtLayer.path = txtPath
