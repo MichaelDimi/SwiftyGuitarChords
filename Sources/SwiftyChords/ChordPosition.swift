@@ -97,6 +97,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
         let fretLength = size.width - (stringMargin * 2)
         let stringLength = size.height - (fretMargin * (chordName.show ? 2.8 : 2))
 
+        // Dynamic position based on fret number
         var offset: CGFloat = 5.0
         if baseFret >= 10 {
             offset = 12.0
