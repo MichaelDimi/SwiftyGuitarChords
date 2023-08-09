@@ -97,12 +97,12 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
         let fretLength = size.width - (stringMargin * 2)
         let stringLength = size.height - (fretMargin * (chordName.show ? 2.8 : 2))
 
-        var offset: CGFloat = 5.0
-        if baseFret >= 10 {
-            offset = 12.0
-        } else if baseFret > 1 {
-            offset = 8.0
-        }
+        var offset: CGFloat = 12.0
+        // if baseFret >= 10 {
+        //     offset = 12.0
+        // } else if baseFret > 1 {
+        //     offset = 8.0
+        // }
         let origin = CGPoint(x: rect.origin.x + offset, y: chordName.show ? fretMargin * 1.2 : 0)
 
         let fretSpacing = stringLength / CGFloat(ChordPosition.numberOfFrets)
@@ -125,7 +125,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
             layer.addSublayer(shapeLayer)
         }
 
-        layer.frame = CGRect(x: 0, y: 0, width: scale + 8, height: newHeight)
+        layer.frame = CGRect(x: 0, y: 0, width: scale + offset * 2, height: newHeight)
 
         return layer
     }
