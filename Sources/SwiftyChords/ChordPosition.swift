@@ -98,6 +98,7 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
         let stringLength = size.height - (fretMargin * (chordName.show ? 2.8 : 2))
 
         let offset: CGFloat = 12.0
+
         let origin = CGPoint(x: rect.origin.x + offset, y: chordName.show ? fretMargin * 1.2 : 0)
 
         let fretSpacing = stringLength / CGFloat(ChordPosition.numberOfFrets)
