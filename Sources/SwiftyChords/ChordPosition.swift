@@ -341,10 +341,10 @@ public struct ChordPosition: Codable, Identifiable, Equatable {
                 circleLayer.lineWidth = fretConfig.spacing / 18
                 #if os(iOS)
                 circleLayer.strokeColor = forScreen ? UIColor.label.cgColor : UIColor.black.cgColor
-                circleLayer.fillColor = forScreen ? UIColor.systemBackground.cgColor : UIColor.white.cgColor
+                circleLayer.fillColor = forScreen ? UIColor.systemBackground.cgColor : UIColor.clear.cgColor
                 #else
                 circleLayer.strokeColor = forScreen ? NSColor.labelColor.cgColor : NSColor.black.cgColor
-                circleLayer.fillColor = forScreen ? NSColor.windowBackgroundColor.cgColor : NSColor.white.cgColor
+                circleLayer.fillColor = forScreen ? NSColor.windowBackgroundColor.cgColor : NSColor.clear.cgColor
                 #endif
                 layer.addSublayer(circleLayer)
 
